@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.guo.common.pojo.EasyUIDataGridResult;
 import com.guo.mapper.TbItemMapper;
 import com.guo.pojo.TbItem;
 import com.guo.pojo.TbItemExample;
@@ -37,6 +40,24 @@ public class ItemServiceImpl implements ItemService {
 			return list.get(0);
 		}
 		return null;
+	}
+
+	@Override
+	public EasyUIDataGridResult getItemList(int page, int rows) {
+		//设置分页信息
+		PageHelper.startPage(page, rows);
+		//执行查询
+		TbItemExample example = new TbItemExample();
+		List<TbItem> list = itemMapper.selectByExample(example);
+		//创建一个查询结果集
+		EasyUIDataGridResult result = new EasyUIDataGridResult();
+		result.setRows(list);
+		//取分页结果
+		PageInfo<TbItem> pageInfo = new PageInfo<>(list);
+		//记录总页数
+		long total = pageInfo.getTotal();
+		result.setTotal(total);
+		return result;
 	}
 
 	
