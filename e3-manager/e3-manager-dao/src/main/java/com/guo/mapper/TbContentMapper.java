@@ -5,7 +5,7 @@ import com.guo.pojo.TbContentExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface TbContentMapper {
+public interface TbContentMapper  {
     int countByExample(TbContentExample example);
 
     int deleteByExample(TbContentExample example);
