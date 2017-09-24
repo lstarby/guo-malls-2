@@ -10,11 +10,11 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <dependencies>
-		<!-- <dependency>
+		 <dependency>
 			<groupId>com.guo</groupId>
-			<artifactId>e3-manager-interface</artifactId>
+			<artifactId>e3-content-interface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency> -->
+		</dependency> 
 		<!-- dubbo相关 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>

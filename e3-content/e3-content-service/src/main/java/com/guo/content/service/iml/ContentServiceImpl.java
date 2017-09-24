@@ -118,5 +118,23 @@ public class ContentServiceImpl implements ContentService {
 		return E3Result.ok();
 		
 	}
+	/**
+	 * 首页大广告展示
+	 * <p>Title: getContentList</p>
+	 * <p>Description: </p>
+	 * @return
+	 */
+
+	@Override
+	public List<TbContent> getContentListByCid(long cid) {
+		TbContentExample example = new TbContentExample();
+		Criteria criteria = example.createCriteria();
+		//设置查询条件
+		criteria.andCategoryIdEqualTo(cid);
+		//执行查询
+		List<TbContent> list = contentMapper.selectByExampleWithBLOBs(example);
+		return list;
+	}
+	
 
 }

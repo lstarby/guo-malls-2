@@ -1,5 +1,7 @@
 package com.guo.content.service;
 
+import java.util.List;
+
 import com.guo.common.pojo.EasyUIDataGridResult;
 import com.guo.common.utils.E3Result;
 import com.guo.pojo.TbContent;
@@ -12,4 +14,6 @@ public interface ContentService {
 	E3Result deleteContent(String ids);
 
 	E3Result updateContent(TbContent content);
+	
+	List<TbContent> getContentListByCid(long cid);
 }

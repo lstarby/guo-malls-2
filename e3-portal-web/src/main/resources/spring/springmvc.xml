@@ -20,7 +20,7 @@
 	<!-- 引用dubbo服务 -->
 	<dubbo:application name="e3-portal-web" />
 	<dubbo:registry protocol="zookeeper" address="192.168.0.132:2181" />
-	<!-- <dubbo:reference interface="com.guo.service.ItemCatService"
-		id="itemCatService" /> -->
+	<dubbo:reference interface="com.guo.content.service.ContentService"
+		id="contentService" />
 
 </beans>
