@@ -164,6 +164,12 @@ Storage分为多个组，每个组之间保存的文件是不同的。每个组�
 ## 5.5图片服务器安装
 [安装请参考这篇文章](https://github.com/guoxiaoxu/Linux-Tutorial/blob/69984bf56cf592abe0693b6af52aacaa2d43bed5/FastDFS-Install-And-Settings.md)
 
-## 6功能展示
-
+# 6功能展示
+## 6.1商品上架、下架、删除功能展示
 ![](https://i.imgur.com/tmKSCPy.gif)
+
+## 6.2内容管理功能展示
+![](https://i.imgur.com/7vLFK45.gif)
+
+## 6.3轮播广告展示
+![](http://imglf5.nosdn.127.net/img/U1lLc0tyOUVrNkFoRHJ1MWdWZmZBbFlRZ2tGSWRFd296eEVMb1FtdXB1R3FFc01FcTI4UnBBPT0.gif)
