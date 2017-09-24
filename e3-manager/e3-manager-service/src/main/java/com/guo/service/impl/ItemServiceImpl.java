@@ -18,6 +18,7 @@ import com.guo.pojo.TbItem;
 import com.guo.pojo.TbItemDesc;
 import com.guo.pojo.TbItemExample;
 import com.guo.pojo.TbItemExample.Criteria;
+import com.guo.pojo.TbItemParamItem;
 import com.guo.service.ItemService;
 /**
  * 商品管理Service

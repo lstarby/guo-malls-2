@@ -1,24 +1,20 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>com.guo</groupId>
-		<artifactId>e3-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
-	<artifactId>e3-manager-web</artifactId>
-	<packaging>war</packaging>
-	<dependencies>
-		<dependency>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.guo</groupId>
+    <artifactId>e3-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>com.guo</groupId>
+  <artifactId>e3-portal-web</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <dependencies>
+		<!-- <dependency>
 			<groupId>com.guo</groupId>
 			<artifactId>e3-manager-interface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.guo</groupId>
-			<artifactId>e3-content-interface</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		</dependency> -->
 		<!-- dubbo相关 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -93,11 +89,6 @@
 			<artifactId>fastdfs_client</artifactId>
 			<version>1.25</version>
 		</dependency>
-		<!-- 文件上传组件 -->
-		<dependency>
-			<groupId>commons-fileupload</groupId>
-			<artifactId>commons-fileupload</artifactId>
-		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -107,10 +98,10 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<configuration>
 					<path>/</path>
-					<port>8071</port>
+					<port>8082</port>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
+  
 </project>

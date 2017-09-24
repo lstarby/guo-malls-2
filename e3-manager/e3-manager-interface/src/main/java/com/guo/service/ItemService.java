@@ -3,6 +3,8 @@ package com.guo.service;
 import com.guo.common.pojo.EasyUIDataGridResult;
 import com.guo.common.utils.E3Result;
 import com.guo.pojo.TbItem;
+import com.guo.pojo.TbItemDesc;
+import com.guo.pojo.TbItemParamItem;
 
 public interface ItemService {
 	

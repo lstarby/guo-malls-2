@@ -10,33 +10,17 @@
 	
 	<!-- 加载配置文件 -->
 	<context:property-placeholder location="classpath:conf/resource.properties" />
-	<context:component-scan base-package="com.guo.controller" />
+	<context:component-scan base-package="com.guo.portal.controller" />
 	<mvc:annotation-driven />
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-	<!-- 资源映射 -->
-	<mvc:resources location="/WEB-INF/js/" mapping="/js/**" />
-	<mvc:resources location="/WEB-INF/css/" mapping="/css/**" />
-	<!-- 定义文件上传解析器 -->
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<!-- 设定默认编码 -->
-		<property name="defaultEncoding" value="UTF-8"></property>
-		<!-- 设定文件上传的最大值5MB，5*1024*1024 -->
-		<property name="maxUploadSize" value="5242880"></property>
-	</bean>
-
 	<!-- 引用dubbo服务 -->
-	<dubbo:application name="e3-manager-web" />
+	<dubbo:application name="e3-portal-web" />
 	<dubbo:registry protocol="zookeeper" address="192.168.0.132:2181" />
-	<dubbo:reference interface="com.guo.service.ItemService"
-		id="itemService" />
-	<dubbo:reference interface="com.guo.service.ItemCatService"
-		id="itemCatService" />
-	<dubbo:reference interface="com.guo.content.service.ContentCategoryService"
-		id="contentCategoryService" />
+	<!-- <dubbo:reference interface="com.guo.service.ItemCatService"
+		id="itemCatService" /> -->
 
 </beans>
