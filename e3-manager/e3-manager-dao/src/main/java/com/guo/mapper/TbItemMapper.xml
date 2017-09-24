@@ -237,7 +237,7 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update tb_item
-    set id = #{record.id,jdbcType=BIGINT},
+    set 
       title = #{record.title,jdbcType=VARCHAR},
       sell_point = #{record.sellPoint,jdbcType=VARCHAR},
       price = #{record.price,jdbcType=BIGINT},

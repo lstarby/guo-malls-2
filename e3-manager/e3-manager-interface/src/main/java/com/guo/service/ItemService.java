@@ -7,6 +7,7 @@ import com.guo.pojo.TbItem;
 public interface ItemService {
 	
 	TbItem getItemById(long itemId);
+	
 	/**
 	 * 商品列表展示
 	 * <p>Title: getItemList</p>
@@ -25,5 +26,32 @@ public interface ItemService {
 	 * @return
 	 */
 	E3Result addItem(TbItem item,String desc);
+	
+	/**
+	 * 删除商品
+	 * <p>Title: deleteItem</p>
+	 * <p>Description: </p>
+	 * @param ids
+	 * @return
+	 */
+	E3Result deleteItem(String ids);
+	
+	/**
+	 * 下架商品
+	 * <p>Title: instockItem</p>
+	 * <p>Description: </p>
+	 * @param ids
+	 * @return
+	 */
+	E3Result instockItem(String ids);
+
+	/**
+	 * 上架
+	 * <p>Title: reshelfItem</p>
+	 * <p>Description: </p>
+	 * @param ids
+	 * @return
+	 */
+	E3Result reshelfItem(String ids);
 
 }

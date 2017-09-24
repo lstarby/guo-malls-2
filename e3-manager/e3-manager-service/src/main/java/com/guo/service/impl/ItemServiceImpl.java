@@ -1,5 +1,6 @@
 package com.guo.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -90,6 +91,85 @@ public class ItemServiceImpl implements ItemService {
 		itemDescMapper.insert(itemDesc);
 		//返回成功
 		return E3Result.ok();
+	}
+	
+	//删除商品
+	@Override
+	public E3Result deleteItem(String ids) {
+		try {
+			String[] idsArray = ids.split(",");
+			List<Long> values = new ArrayList<Long>();
+			for(String id : idsArray) {
+				values.add(Long.parseLong(id));
+			}
+			TbItemExample example = new TbItemExample();
+			Criteria criteria = example.createCriteria();
+			criteria.andIdIn(values);
+		
+			List<TbItem> list = itemMapper.selectByExample(example);
+			if(list!=null && list.size()>0){
+				TbItem item=list.get(0);
+				item.setStatus((byte)3);
+				itemMapper.updateByExample(item, example);
+			}
+			return E3Result.ok();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	//下架商品
+	@Override
+	public E3Result instockItem(String ids) {
+
+		try {
+			String[] idsArray = ids.split(",");
+			List<Long> values = new ArrayList<Long>();
+			for(String id : idsArray) {
+				values.add(Long.parseLong(id));
+			}
+			TbItemExample example = new TbItemExample();
+			Criteria criteria = example.createCriteria();
+			criteria.andIdIn(values);
+		
+			List<TbItem> list = itemMapper.selectByExample(example);
+			if(list!=null && list.size()>0){
+				TbItem item=list.get(0);
+				item.setStatus((byte)2);
+				itemMapper.updateByExample(item, example);
+			}
+			return E3Result.ok();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+
+	//上架商品
+	@Override
+	public E3Result reshelfItem(String ids) {
+		try {
+			String[] idsArray = ids.split(",");
+			List<Long> values = new ArrayList<Long>();
+			for(String id : idsArray) {
+				values.add(Long.parseLong(id));
+			}
+			TbItemExample example = new TbItemExample();
+			Criteria criteria = example.createCriteria();
+			criteria.andIdIn(values);
+			List<TbItem> list = itemMapper.selectByExample(example);
+			if(list!=null && list.size()>0){
+				TbItem item=list.get(0);
+				item.setStatus((byte)1);
+				itemMapper.updateByExample(item, example);
+			}
+			return E3Result.ok();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	
