@@ -163,3 +163,7 @@ Storage分为多个组，每个组之间保存的文件是不同的。每个组�
 
 ## 5.5图片服务器安装
 [安装请参考这篇文章](https://github.com/guoxiaoxu/Linux-Tutorial/blob/69984bf56cf592abe0693b6af52aacaa2d43bed5/FastDFS-Install-And-Settings.md)
+
+## 6功能展示
+
+![](https://i.imgur.com/tmKSCPy.gif)
