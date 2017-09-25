@@ -172,4 +172,5 @@ Storage分为多个组，每个组之间保存的文件是不同的。每个组�
 ![](https://i.imgur.com/7vLFK45.gif)
 
 ## 6.3轮播广告展示
+
 ![](https://i.imgur.com/YRtJiSY.gif)
