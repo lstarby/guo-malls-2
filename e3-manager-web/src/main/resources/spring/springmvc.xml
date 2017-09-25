@@ -40,5 +40,7 @@
 		id="contentCategoryService" />
 	<dubbo:reference interface="com.guo.content.service.ContentService"
 		id="contentService" />
+	<dubbo:reference interface="com.guo.search.service.SearchItemService"
+		id="searchItemService" />
 
 </beans>
