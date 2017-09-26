@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.guo.common.jedis.JedisClient;
 import com.guo.common.jedis.JedisClientCluster;
 import com.guo.common.pojo.EasyUIDataGridResult;
 import com.guo.common.utils.E3Result;
@@ -29,7 +30,8 @@ public class ContentServiceImpl implements ContentService {
 	private TbContentMapper contentMapper;
 
 	@Autowired
-	private JedisClientCluster jedisClientCluster;
+	// private JedisClientCluster jedisClientCluster;
+	private JedisClient jedisClient;
 
 	@Value("${CONTENT_LIST}")
 	private String CONTENT_LIST;
@@ -52,7 +54,7 @@ public class ContentServiceImpl implements ContentService {
 		content.setUpdated(new Date());
 		contentMapper.insert(content);
 		// 缓存同步,删除缓存中对应的数据。
-		jedisClientCluster.hdel(CONTENT_LIST, content.getCategoryId().toString());
+		jedisClient.hdel(CONTENT_LIST, content.getCategoryId().toString());
 		return E3Result.ok();
 	}
 
@@ -167,7 +169,7 @@ public class ContentServiceImpl implements ContentService {
 	public List<TbContent> getContentListByCid(long cid) {
 		// 查询缓存
 		try {
-			String json = jedisClientCluster.hget(CONTENT_LIST, cid + "");
+			String json = jedisClient.hget(CONTENT_LIST, cid + "");
 			// 判断json是否为空
 			if (StringUtils.isNotBlank(json)) {
 				// 把json转换成list
@@ -184,10 +186,10 @@ public class ContentServiceImpl implements ContentService {
 		criteria.andCategoryIdEqualTo(cid);
 		// 执行查询
 		List<TbContent> list = contentMapper.selectByExample(example);
-		
+
 		// 把结果添加到缓存
 		try {
-			jedisClientCluster.hset(CONTENT_LIST, cid + "", JsonUtils.objectToJson(list));
+			jedisClient.hset(CONTENT_LIST, cid + "", JsonUtils.objectToJson(list));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

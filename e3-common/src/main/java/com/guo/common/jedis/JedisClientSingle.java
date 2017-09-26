@@ -1,6 +1,8 @@
 package com.guo.common.jedis;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
@@ -9,8 +11,9 @@ import redis.clients.jedis.JedisPool;
 //单机版
 public class JedisClientSingle implements JedisClient {
 
+	@Autowired
 	private JedisPool jedisPool;
-
+	
 	@Override
 	public String get(String key) {
 		Jedis jedis = jedisPool.getResource();
