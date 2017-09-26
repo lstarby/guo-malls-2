@@ -26,7 +26,7 @@ public class JedisClientTest {
 	//@Test
 	public void testSpringJedisCluster() {
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:spring/applicationContext-*.xml");
-		JedisCluster jedisCluster =  (JedisCluster) applicationContext.getBean("redisClient");
+		JedisCluster jedisCluster =  (JedisCluster) applicationContext.getBean("jedisCluster");
 		String string = jedisCluster.get("name");
 		System.out.println(string);
 		jedisCluster.close();

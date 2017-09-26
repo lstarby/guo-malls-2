@@ -15,7 +15,7 @@ import redis.clients.jedis.JedisPoolConfig;
 
 public class jedisTest {
 	// 连接redis集群
-	// @Test
+	//@Test
 	public void testJedisCluster() {
 
 		JedisPoolConfig config = new JedisPoolConfig();
