@@ -202,5 +202,11 @@ public class ItemServiceImpl implements ItemService {
 			return null;
 		}
 	}
+	@Override
+	public TbItemDesc getItemDescById(long itemId) {
+		
+		TbItemDesc itemDesc = itemDescMapper.selectByPrimaryKey(itemId);
+		return itemDesc;
+	}
 
 }

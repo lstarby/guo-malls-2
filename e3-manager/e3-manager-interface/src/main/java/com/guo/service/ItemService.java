@@ -55,5 +55,14 @@ public interface ItemService {
 	 * @return
 	 */
 	E3Result reshelfItem(String ids);
+	
+	/**
+	 * 商品详情页
+	 * <p>Title: getItemDescById</p>
+	 * <p>Description: </p>
+	 * @param itemId
+	 * @return
+	 */
+	TbItemDesc getItemDescById(long itemId);
 
 }
