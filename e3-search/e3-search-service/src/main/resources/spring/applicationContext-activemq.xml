@@ -29,10 +29,10 @@
 	
 	<!--这个是主题目的地，一对多的 -->
 	<bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">
-		<constructor-arg value="topic" />
+		<constructor-arg value="itemAddtopic" />
 	</bean>
 	
-		<!-- 接收消息 -->
+	<!-- 接收消息 -->
 	<!-- 配置监听器 -->
 	<bean id="myMessageListener" class="com.guo.search.message.MyMessageListener" />
 	<!-- 消息监听容器 -->
@@ -40,6 +40,13 @@
 		<property name="connectionFactory" ref="connectionFactory" />
 		<property name="destination" ref="queueDestination" />
 		<property name="messageListener" ref="myMessageListener" />
+	</bean>
+	<!-- 监听商品添加消息，同步索引库 -->
+	<bean id="itemChangeListener" class="com.guo.search.message.ItemChangeListener" />
+	<bean class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="destination" ref="topicDestination" />
+		<property name="messageListener" ref="itemChangeListener" />
 	</bean>
 	
 
