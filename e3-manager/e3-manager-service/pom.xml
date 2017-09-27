@@ -1,14 +1,15 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.guo</groupId>
-    <artifactId>e3-manager</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <packaging>war</packaging>
-  <artifactId>e3-manager-service</artifactId>
-  
-  <dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.guo</groupId>
+		<artifactId>e3-manager</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<packaging>war</packaging>
+	<artifactId>e3-manager-service</artifactId>
+
+	<dependencies>
 		<dependency>
 			<groupId>com.guo</groupId>
 			<artifactId>e3-manager-dao</artifactId>
@@ -19,7 +20,7 @@
 			<artifactId>e3-manager-interface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		
+
 
 		<!-- spring的依赖 -->
 		<!-- Spring -->
@@ -51,6 +52,10 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-all</artifactId>
+		</dependency>
 		<!-- dubbo相关 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -75,5 +80,5 @@
 			<artifactId>zkclient</artifactId>
 		</dependency>
 	</dependencies>
-  
+
 </project>
