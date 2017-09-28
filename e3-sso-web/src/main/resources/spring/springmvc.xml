@@ -27,5 +27,11 @@
 	<dubbo:registry protocol="zookeeper" address="192.168.0.132:2181" />
 	<dubbo:reference interface="com.guo.sso.service.RegisterService"
 		id="registerService" />
+	<dubbo:reference interface="com.guo.sso.service.LoginService"
+		id="loginService" />
+	<dubbo:reference interface="com.guo.sso.service.TokenService"
+		id="tokenService" />
+	<dubbo:reference interface="com.guo.sso.service.LogoutService"
+		id="logoutService" />
 
 </beans>
