@@ -26,7 +26,7 @@ public class LogoutController {
 	@Autowired
 	private LogoutService logoutService;
 	
-	@RequestMapping("/logout/{token}")
+	@RequestMapping("/user/logout/{token}")
 	@ResponseBody
 	public Object userLogout(@PathVariable String token, String callback) {
 		E3Result result = null;

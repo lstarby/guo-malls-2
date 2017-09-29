@@ -1,8 +1,8 @@
 package com.guo.sso.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.guo.common.jedis.JedisClient;
 import com.guo.common.utils.E3Result;
 import com.guo.sso.service.LogoutService;
