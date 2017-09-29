@@ -65,7 +65,7 @@ public class TestSolrJ {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void queryIndexFuza() throws Exception {
 		SolrServer solrServer = new HttpSolrServer("http://192.168.0.137:8080/solr/collection1");
 		//创建一个查询对象

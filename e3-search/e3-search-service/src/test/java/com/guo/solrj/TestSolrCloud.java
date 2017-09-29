@@ -10,7 +10,7 @@ import org.junit.Test;
 
 public class TestSolrCloud {
 
-	@Test
+	//@Test
 	public void testAddDocument() throws Exception {
 		//创建一个集群的连接，应该使用CloudSolrServer创建。
 		CloudSolrServer solrServer = new CloudSolrServer("192.168.0.137:2181,192.168.0.137:2182,192.168.0.137:2183");
@@ -30,7 +30,7 @@ public class TestSolrCloud {
 		
 	}
 	
-	@Test
+	//@Test
 	public void testQueryDocument() throws Exception {
 		//创建一个CloudSolrServer对象
 		CloudSolrServer cloudSolrServer = new CloudSolrServer("192.168.0.137:2181,192.168.0.137:2182,192.168.0.137:2183");

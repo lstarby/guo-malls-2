@@ -1,6 +1,8 @@
 package com.guo.common.jedis;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import redis.clients.jedis.Jedis;
@@ -85,4 +87,27 @@ public class JedisClientSingle implements JedisClient {
 		jedis.close();
 		return result;
 	}
+
+	@Override
+	public Boolean exists(String key) {
+		Jedis jedis = jedisPool.getResource();
+		Boolean result = jedis.exists(key);
+		jedis.close();
+		return result;
+	}
+
+	@Override
+	public Boolean hexists(String key, String field) {
+		Jedis jedis = jedisPool.getResource();
+		Boolean result = jedis.hexists(key, field);
+		return result;
+	}
+
+	@Override
+	public List<String> hvals(String key) {
+		Jedis jedis = jedisPool.getResource();
+		List<String> reslut = jedis.hvals(key);
+		return reslut;
+	}
+
 }

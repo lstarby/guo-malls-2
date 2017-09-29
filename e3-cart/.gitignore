@@ -1,0 +1,9 @@
+/.settings/
+/.classpath
+/.project
+/.metadata/
+/.build/
+/target/
+/.recommenders/
+/RemoteSystemsTempFiles/
+/generatorSqlmapCustom/

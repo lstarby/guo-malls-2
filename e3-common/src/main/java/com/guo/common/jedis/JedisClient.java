@@ -1,5 +1,6 @@
 package com.guo.common.jedis;
 
+import java.util.List;
 
 public interface JedisClient {
 	
@@ -12,4 +13,7 @@ public interface JedisClient {
 	long ttl(String key);
 	long  del(String key);
 	long  hdel(String hkey,String key);
+	Boolean exists(String key);
+	Boolean hexists(String key, String field);
+	List<String> hvals(String key);
 }
