@@ -188,3 +188,107 @@ SolrCloud(solr 云)是Solr提供的分布式搜索方案，当你需要大规模
 ## 7.1Solr集群的系统架构
 
 ![](https://i.imgur.com/SbCqbP4.png)
+
+# 8项目部署
+
+## 8.1.	项目架构讲解
+![](https://i.imgur.com/oeqk3dm.png)
+
+## 8.2.	域名规划
+|序号	|工程名	|域名|
+| :----:| :----:|:----:|
+|1	| e3-manager-web|	manager.e3mall.cn |
+|2	| e3-portal-web	|www.e3mall.cn |
+|3	| e3-search-web |	search.e3mall.cn |
+|4	| e3-item-web |	item.e3mall.cn |
+|5	| e3-sso-web	|sso.e3mall.cn |
+|6	| e3-cart-web|	cart.e3mall.cn |
+|7	| e3-order-web|	order.e3mall.cn  |  
+
+## 8.3.	Tomcat热部署
+
+需要修改tomcat的conf/tomcat-users.xml配置文件
+
+```
+<role rolename="manager-gui" />
+<role rolename="manager-script" />
+<user username="tomcat" password="tomcat" roles="manager-gui, manager-script"/>
+```
+
+配置tomcat插件，需要修改工程的pom文件
+
+```
+<build>
+		<plugins>
+			<!-- 配置Tomcat插件 -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<configuration>
+					<port>8081</port>
+					<path>/</path>
+					<url>http://192.168.25.135:8080/manager/text</url>
+					<username>tomcat</username>
+					<password>tomcat</password>
+				</configuration>		
+			</plugin>
+		</plugins>
+	</build>
+
+```
+
+使用maven命令进行部署。
+
+- tomcat7:deploy
+- tomcat7:redeploy
+- clean tomcat7:redeploy -DskipTests
+
+## 8.4.	反向代理的配置
+
+```
+upstream manager.e3mall.cn {
+	server 192.168.0.141:8071;
+    }
+     upstream www.e3mall.cn {
+	server 192.168.0.141:8082;
+    }
+
+    upstream search.e3mall.cn {
+	server 192.168.0.141:8085;
+    }
+		...........................
+		server {
+	        listen       80;
+	        server_name  manager.e3mall.cn;
+
+	        location / {
+	            proxy_pass   http://manager.e3mall.cn;
+	            index  index.html index.htm;
+	        }
+	    }
+
+	     server {
+	    listen       80;
+	    server_name  www.e3mall.cn;
+
+	    location / {
+	        proxy_pass   http://www.e3mall.cn;
+	        index  index.html index.htm;
+	    }
+
+	    }
+	  	server {
+	    listen       80;
+	    server_name  search.e3mall.cn;
+
+	    location / {
+	        proxy_pass   http://search.e3mall.cn;
+	        index  index.html index.htm;
+	    }
+
+	    }
+```
+
+## 9项目总结
+
+ 越努力越幸运
